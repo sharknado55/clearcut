@@ -78,6 +78,13 @@
     font-family: "Lexend Exa", sans-serif; font-size: 37px; letter-spacing: -1.5px;
     color: var(--lime-deep);
   }
+
+  /* Social preview variant (open with ?social): 1920x960, GitHub's 2:1 card ratio. */
+  html.social, html.social body { height: 960px; }
+  html.social .version { top: 650px; }
+  html.social .cta { top: 842px; }
+  html.social .repo { top: 814px; }
+  html.social .g4 { top: 760px; }
 </style>
 </head>
 <body>
@@ -128,6 +135,7 @@
   </div>
 
   <script>
+    if (location.search.includes("social")) document.documentElement.classList.add("social");
     // Wavy "seal" outline: a circle whose radius ripples 12 times around.
     const points = [];
     for (let i = 0; i < 360; i++) {

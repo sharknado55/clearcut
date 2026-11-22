@@ -39,3 +39,7 @@ Run the focused editing and PNG checks with `dotnet run --project tests/Clearcut
 Photo uses [BiRefNet Lite](https://huggingface.co/onnx-community/BiRefNet_lite-ONNX) under the MIT license. Anime uses [SkyTNT’s ISNet anime segmentation model](https://huggingface.co/skytnt/anime-seg) under Apache 2.0. Both licenses are in the release notices.
 
 The banner is `docs/banner.html`. Re-render `docs/banner.png` with `scripts/render-banner.ps1`.
+
+## License
+
+Clearcut is released under the [PolyForm Noncommercial License 1.0.0](LICENSE.md). You can use, change and share it for any noncommercial purpose, including personal use, research, education and charities. Commercial use needs separate permission from the author. The bundled AI models keep their own licenses (MIT and Apache 2.0), listed in `release/notices`.
