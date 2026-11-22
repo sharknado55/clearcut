@@ -1,0 +1,14 @@
+**/bin/
+**/obj/
+*.download
+
+# AI models are downloaded by scripts/get-models.ps1 (each is over GitHub's 100 MB file limit)
+src/Assets/*.onnx
+
+# Build output: upload these as GitHub release assets instead of committing them
+release/*.exe
+release/*.zip
+release/*.lib
+
+# Not part of this app
+apk/

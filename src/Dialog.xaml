@@ -1,0 +1,28 @@
+<Window x:Class="Clearcut.Dialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    WindowStyle="None" AllowsTransparency="True" Background="Transparent" ResizeMode="NoResize"
+    SizeToContent="WidthAndHeight" ShowInTaskbar="False" WindowStartupLocation="CenterOwner"
+    FontFamily="Segoe UI Variable Text, Segoe UI" FontSize="13" Foreground="{StaticResource Body}"
+    UseLayoutRounding="True" TextOptions.TextFormattingMode="Display" PreviewKeyDown="OnKeyDown">
+    <!-- Margin leaves room for the shadow inside the transparent window. -->
+    <Border Margin="28" Width="400" Background="{StaticResource Panel}" BorderBrush="{StaticResource LineStrong}"
+            BorderThickness="1" CornerRadius="18" Padding="24,22,24,20">
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="36" ShadowDepth="10" Direction="270" Opacity=".6" Color="Black"/>
+        </Border.Effect>
+        <StackPanel>
+            <Border x:Name="Badge" Width="40" Height="40" CornerRadius="12" HorizontalAlignment="Left" Margin="0,0,0,16">
+                <Path x:Name="Glyph" Width="18" Height="18" Stretch="Uniform" StrokeThickness="2"
+                      StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeLineJoin="Round"/>
+            </Border>
+            <TextBlock x:Name="Heading" FontSize="17" FontWeight="SemiBold" TextWrapping="Wrap"/>
+            <TextBlock x:Name="Message" Foreground="{StaticResource Muted}" TextWrapping="Wrap" LineHeight="20"
+                       LineStackingStrategy="BlockLineHeight" Margin="0,6,0,0"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,22,0,0">
+                <Button x:Name="SecondaryButton" MinWidth="104" Margin="0,0,8,0" Click="OnSecondary"/>
+                <Button x:Name="PrimaryButton" MinWidth="104" Click="OnPrimary"/>
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</Window>

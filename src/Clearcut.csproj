@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>Clearcut</AssemblyName>
+    <ApplicationIcon>Assets\Clearcut.ico</ApplicationIcon>
+    <Version>1.0.0</Version>
+    <Product>Clearcut</Product>
+    <Description>Offline background eraser for Windows</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ML.OnnxRuntime" Version="1.24.4" />
+    <InternalsVisibleTo Include="Clearcut.Checks" />
+    <EmbeddedResource Include="Assets\birefnet-lite.onnx" LogicalName="Clearcut.birefnet-lite.onnx" />
+    <EmbeddedResource Include="Assets\isnet-anime.onnx" LogicalName="Clearcut.isnet-anime.onnx" />
+    <Resource Include="Assets\Clearcut.ico" />
+  </ItemGroup>
+  <!-- The models are too large for git; scripts/get-models.ps1 downloads and verifies them. -->
+  <Target Name="RequireModels" BeforeTargets="PrepareForBuild"
+          Condition="!Exists('Assets\birefnet-lite.onnx') Or !Exists('Assets\isnet-anime.onnx')">
+    <Error Text="The AI models are missing. Run scripts\get-models.ps1 from the repository root, then build again." />
+  </Target>
+</Project>
